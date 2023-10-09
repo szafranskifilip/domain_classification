@@ -36,28 +36,22 @@ Projekt wykorzystuje różne techniki z dziedziny data science, aby stworzyć sy
 Aby zapewnić spójność i możliwość odtworzenia, korzystamy z narzędzia Conda do zarządzania środowiskiem projektu. Plik `environment.yaml` zawiera wszystkie zależności wymagane do tego projektu. Postępuj zgodnie z poniższymi krokami, aby skonfigurować środowisko:
 
 1. **Sklonuj Repozytorium:**
-   ```bash
-   git clone https://github.com/szafranskifilip/ML_Academy.git
-   cd projectlocation
+```bash
+    git clone https://github.com/szafranskifilip/ML_Academy.git
+    cd projectlocation
 ```
-
-
 2. **Utwórz Środowisko Conda**:
-   ```bash
-conda env create -f environment.yaml
+```bash
+    conda env create -f environment.yaml
 ```
-
-
 3. **Aktywuj Środowisko**:
-   ```bash
+```bash
    conda activate domain-classifier
 ```
-
-
 4. **Zainstaluj Biblioteki**:
 ```bash
-pip install scikit-learn
-pip install imblearn
+    pip install scikit-learn
+    pip install imblearn
 ```
 
 
@@ -277,9 +271,9 @@ Kroki przekształcenia i przetwarzania danych w naszym Pipeline są zaprojektowa
 **Adaptowalność modelu**
 Nasze wybory algorytmów klasyfikacji i ogólna struktura Pipeline przyczyniają się do adaptowalności modelu do danych niewidzianych i nowych:
 
-- **Selekcja Cech**: Korzystając z SelectKBest, zapewniamy, że w modelu używane są tylko najbardziej informatywne cechy. Pomaga to zmniejszyć wpływ nieistotnych lub zaszumionych cech w nowych danych, co sprawia, że model jest bardziej dostosowalny.
-- **Ponowne Trenowanie**: Okresowe ponowne trenowanie modelu na nowych oznakowanych danych jest ważną częścią efektywnej obsługi nowych informacji. Pomaga to modelowi dostosować się do ewoluujących wzorców i utrzymać jego dokładność.
-- **Ciągłe Monitorowanie i Ocena**: Aby zapewnić, że nasz Pipeline pozostaje skuteczny w obsłudze nowych danych, zalecamy wdrożenie procesów ciągłego monitorowania i oceny. Obejmuje to:
+- **Selekcja Ccech**: Korzystając z SelectKBest, zapewniamy, że w modelu używane są tylko najbardziej informatywne cechy. Pomaga to zmniejszyć wpływ nieistotnych lub zaszumionych cech w nowych danych, co sprawia, że model jest bardziej dostosowalny.
+- **Ponowne trenowanie**: Okresowe ponowne trenowanie modelu na nowych oznakowanych danych jest ważną częścią efektywnej obsługi nowych informacji. Pomaga to modelowi dostosować się do ewoluujących wzorców i utrzymać jego dokładność.
+- **Ciągłe monitorowanie i ocena**: Aby zapewnić, że nasz Pipeline pozostaje skuteczny w obsłudze nowych danych, zalecamy wdrożenie procesów ciągłego monitorowania i oceny. Obejmuje to:
 
 Regularne aktualizacje modelu na nowych oznakowanych danych, aby uwzględnić ewoluujące wzorce i zagrożenia.
 Okresowe ponowne ocenianie wydajności modelu na nowych danych w celu zidentyfikowania ewentualnych zmian w dokładności. Utrzymanie pętli informacyjnej z analitykami ds. bezpieczeństwa lub ekspertami ds. domen, aby uwzględnić ich wglądy i wiedzę w aktualizacjach modelu.
@@ -289,13 +283,13 @@ Okresowe ponowne ocenianie wydajności modelu na nowych danych w celu zidentyfik
 
 W typowym projekcie z dziedziny nauk danych, po oczyszczeniu danych, przetwarzaniu, zbudowaniu pipeline i trenowaniu oraz ocenie modelu, istnieje kilka dodatkowych kroków i najlepszych praktyk, które są powszechnie podejmowane w celu zapewnienia sukcesu i niezawodności projektu. Te kroki mogą obejmować:
 
-- **Selekcję i Inżynierię Cech**: Dalsze udoskonalenie i optymalizacja zestawu cech używanych w modelu. Może to obejmować tworzenie nowych cech, przekształcanie istniejących lub wybieranie najbardziej istotnych cech w celu poprawy wydajności modelu.
-- **Dostrojenie Hiperparametrów**: Przeprowadzenie kompleksowego poszukiwania najlepszych hiperparametrów dla Twojego modelu. Techniki takie jak grid search pomogą znaleźć optymalne wartości hiperparametrów.
-- **Interpretowalność Modelu**: Wdrożenie technik interpretacji modelu, takich jak wartości SHAP, LIME i metody interpretacji specyficzne dla modelu. Zrozumienie, dlaczego model podejmuje określone przewidywania, jest kluczowe dla budowania zaufania i uzyskiwania wglądów.
+- **Selekcję i inżynierię cech**: Dalsze udoskonalenie i optymalizacja zestawu cech używanych w modelu. Może to obejmować tworzenie nowych cech, przekształcanie istniejących lub wybieranie najbardziej istotnych cech w celu poprawy wydajności modelu.
+- **Dostrojenie hiperparametrów**: Przeprowadzenie kompleksowego poszukiwania najlepszych hiperparametrów dla Twojego modelu. Techniki takie jak grid search pomogą znaleźć optymalne wartości hiperparametrów.
+- **Interpretowalność modelu**: Wdrożenie technik interpretacji modelu, takich jak wartości SHAP, LIME i metody interpretacji specyficzne dla modelu. Zrozumienie, dlaczego model podejmuje określone przewidywania, jest kluczowe dla budowania zaufania i uzyskiwania wglądów.
 - **Cross-Validation**: Wdrożenie walidacji krzyżowej w celu oceny wydajności i stabilności modelu. Walidacja krzyżowa pomaga oszacować, jak dobrze model będzie działać na nowych, niewidzianych danych, oceniając go na wielu podzbiorach danych treningowych. Powszechne techniki to np. k-fold cross-validation.
-- **Agregacja lub Grupowanie Danych Kategorycznych o Wysokiej Kardynalności**: Jeśli masz do czynienia z danymi kategorycznymi o wysokiej kardynalności, rozważ grupowanie lub agregowanie kategorii, które mają wspólne cechy. Może to pomóc zmniejszyć wymiar cech kategorycznych, zachowując jednocześnie znaczące informacje. Na przykład, możesz zgrupować rzadkie kategorie w kategorię "Inne".
-- **Wdrożenie Modelu**: Przygotowanie modelu do wdrożenia w środowisku produkcyjnym. Może to obejmować konteneryzację, tworzenie interfejsów API RESTful lub wdrożenie modelu na platformach chmurowych.
-- **Monitorowanie i Utrzymanie**: Wdrożenie systemu ciągłego monitorowania modelu w celu wykrywania degradacji modelu. Obejmuje to regularne ponowne trenowanie modelu na nowych danych i aktualizację go w miarę potrzeb.
+- **Agregacja lub grupowanie danych kategorycznych o wysokiej kardynalności**: Jeśli masz do czynienia z danymi kategorycznymi o wysokiej kardynalności, rozważ grupowanie lub agregowanie kategorii, które mają wspólne cechy. Może to pomóc zmniejszyć wymiar cech kategorycznych, zachowując jednocześnie znaczące informacje. Na przykład, możesz zgrupować rzadkie kategorie w kategorię "Inne".
+- **Wdrożenie modelu**: Przygotowanie modelu do wdrożenia w środowisku produkcyjnym. Może to obejmować konteneryzację, tworzenie interfejsów API RESTful lub wdrożenie modelu na platformach chmurowych.
+- **Monitorowanie i utrzymanie**: Wdrożenie systemu ciągłego monitorowania modelu w celu wykrywania degradacji modelu. Obejmuje to regularne ponowne trenowanie modelu na nowych danych i aktualizację go w miarę potrzeb.
 
 
 
