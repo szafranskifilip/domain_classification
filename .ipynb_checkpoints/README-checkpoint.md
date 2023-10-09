@@ -36,28 +36,22 @@ The project leverages various data science techniques, including data collection
 To ensure consistency and reproducibility, we use Conda to manage the project's environment. The `environment.yaml` file contains all the dependencies required for this project. Follow these steps to set up the environment:
 
 1. **Clone the Repository:**
-   ```bash
-   git clone https://github.com/szafranskifilip/ML_Academy.git
-   cd projectlocation
+```bash
+    git clone https://github.com/szafranskifilip/ML_Academy.git
+    cd projectlocation
 ```
-
-
 2. **Create the Conda Environment**:
-   ```bash
-conda env create -f environment.yaml
+```bash
+    conda env create -f environment.yaml
 ```
-
-
 3. **Activate the Environment**:
-   ```bash
+```bash
    conda activate domain-classifier
 ```
-
-
 4. **Install Libraries**:
 ```bash
-pip install scikit-learn
-pip install imblearn
+    pip install scikit-learn
+    pip install imblearn
 ```
 
 
